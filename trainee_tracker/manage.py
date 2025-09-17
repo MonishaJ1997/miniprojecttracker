@@ -5,7 +5,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trainee_tracker.backend.tracker_backend.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.tracker_backend.settings")
 
    
     try:
@@ -22,3 +22,4 @@ def main():
 if __name__ == '__main__':
 
     main()
+
