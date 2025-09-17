@@ -62,7 +62,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "tracker_backend.urls"
+ROOT_URLCONF = "backend.tracker_backend.urls"
 
 # ----------------------------
 # TEMPLATES
@@ -151,5 +151,6 @@ SIMPLE_JWT = {
 # CORS
 # ----------------------------
 CORS_ALLOW_ALL_ORIGINS = True
+
 
 
