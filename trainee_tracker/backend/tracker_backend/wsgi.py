@@ -11,9 +11,10 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trainee_tracker.backend.tracker_backend.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.tracker_backend.settings")
 
 
 application = get_wsgi_application()
+
 
 
