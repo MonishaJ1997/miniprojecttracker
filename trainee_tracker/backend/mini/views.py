@@ -119,47 +119,10 @@ def delete_project(request, pk):
     return render(request, 'delete_project.html', {'project': project})
 
 
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import MiniProject
-from .forms import MiniProjectForm
-
-# Update project
-def update_project(request, pk):
-    project = get_object_or_404(MiniProject, pk=pk)
-    if request.method == 'POST':
-        form = MiniProjectForm(request.POST, instance=project)
-        if form.is_valid():
-            form.save()
-            return redirect('trainer_dashboard')
-    else:
-        form = MiniProjectForm(instance=project)
-    return render(request, 'update_project.html', {'form': form})
-
-# Delete project
-def delete_project(request, pk):
-    project = get_object_or_404(MiniProject, pk=pk)
-    if request.method == 'POST':
-        project.delete()
-        return redirect('trainer_dashboard')
-    return render(request, 'delete_project.html', {'project': project})
 
 
-def create_project(request):
-    if request.method == "POST":
-        form = MiniProjectForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("trainer_dashboard")
-    else:
-        form = MiniProjectForm()  # blank form for GET
-
-    return render(request, "project_form.html", {"form": form})
 
 
-def trainer_dashboard(request):
-    projects = MiniProject.objects.all()
-    form = MiniProjectForm()  # always pass a blank form
-    return render(request, "trainer_dashboard.html", {"projects": projects, "form": form})
 
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import MiniProject
@@ -179,22 +142,5 @@ def trainer_dashboard(request):
     return render(request, "trainer_dashboard.html", {"projects": projects, "form": form})
 
 
-def update_project(request, pk):
-    project = get_object_or_404(MiniProject, pk=pk)
-    if request.method == "POST":
-        form = MiniProjectForm(request.POST, instance=project)
-        if form.is_valid():
-            form.save()
-            return redirect("trainer_dashboard")
-    else:
-        form = MiniProjectForm(instance=project)
-    return render(request, "project_form.html", {"form": form})
 
-
-def delete_project(request, pk):
-    project = get_object_or_404(MiniProject, pk=pk)
-    if request.method == "POST":
-        project.delete()
-        return redirect("trainer_dashboard")
-    return render(request, "confirm_delete.html", {"project": project})
 
