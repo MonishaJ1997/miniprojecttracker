@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "corsheaders",
 
     # Local apps
-    "mini",
+    "backend.mini",
 ]
 
 AUTH_USER_MODEL = "mini.User"
@@ -149,3 +149,4 @@ SIMPLE_JWT = {
 # CORS
 # ----------------------------
 CORS_ALLOW_ALL_ORIGINS = True
+
