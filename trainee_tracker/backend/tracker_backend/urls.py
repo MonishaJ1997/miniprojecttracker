@@ -18,7 +18,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from mini.views import home, login_redirect, trainer_dashboard, trainee_dashboard
+from backend.mini.views import home, login_redirect, trainer_dashboard, trainee_dashboard
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
     path("project/", include("mini.urls")),  # include CRUD project URLs
     path("logout/", auth_views.LogoutView.as_view(next_page='/'), name="logout"),
 ]
+
 
 
 
