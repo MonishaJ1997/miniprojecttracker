@@ -1,1 +1,3 @@
-web: gunicorn tracker_backend.wsgi
+web: gunicorn backend.tracker_backend.wsgi
+
+
