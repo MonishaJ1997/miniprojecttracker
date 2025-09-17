@@ -1,3 +1,5 @@
-web: gunicorn backend.tracker_backend.wsgi
+gunicorn trainee_tracker.backend.tracker_backend.wsgi:application
+
+
 
 
