@@ -119,10 +119,12 @@ USE_TZ = True
 # STATIC FILES
 # ----------------------------
 STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 STATICFILES_DIRS = [
     BASE_DIR.parent / "frontend" / "static",  # frontend/static
 ]
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # ----------------------------
 # DEFAULTS
 # ----------------------------
@@ -149,4 +151,5 @@ SIMPLE_JWT = {
 # CORS
 # ----------------------------
 CORS_ALLOW_ALL_ORIGINS = True
+
 
