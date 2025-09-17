@@ -27,9 +27,10 @@ urlpatterns = [
     path("login/", login_redirect, name="login_redirect"),
     path("trainer/", trainer_dashboard, name="trainer_dashboard"),
     path("trainee/", trainee_dashboard, name="trainee_dashboard"),
-    path("project/", include("mini.urls")),  # include CRUD project URLs
+    path("project/", include("backend.mini.urls")),  # include CRUD project URLs
     path("logout/", auth_views.LogoutView.as_view(next_page='/'), name="logout"),
 ]
+
 
 
 
