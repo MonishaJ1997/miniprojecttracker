@@ -1,0 +1,111 @@
+{% load static %}   <!-- 👈 Add this at the very top -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Project Tracker</title>
+<script src="{% static 'js/script.js' %}"></script>
+
+  <!-- Inline CSS -->
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Header styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #333;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header button */
+    header .header-btn {
+      background-color: red;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    header .header-btn:hover {
+      background-color: darkred;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    /* Example sections */
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mini Project Tracker</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <button class="header-btn" onclick="window.location.href='/login/'">Login</button>
+
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>About Mini Projects</h2>
+      <p>This is a mini project tracker for trainees and trainers. You can login to see your dashboard.</p>
+    </section>
+    <section>
+      <h2>Instructions</h2>
+      <p>Click login to access your account. Trainers can assign projects, and trainees can update status.</p>
+    </section>
+  </div>
+
+</body>
+</html>

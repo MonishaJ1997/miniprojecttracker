@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p id="error" style="color:red;"></p>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      let username = document.getElementById("username").value;
+      let password = document.getElementById("password").value;
+
+      try {
+        let response = await fetch("http://127.0.0.1:8000/api/login/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        let data = await response.json();
+
+        if (data.success) {
+          // Save token in localStorage
+          localStorage.setItem("token", data.token);
+
+          // Redirect based on role
+          if (data.role === "trainer") {
+            window.location.href = "trainer_dashboard.html";
+          } else {
+            window.location.href = "trainee_dashboard.html";
+          }
+        } else {
+          document.getElementById("error").textContent = "Invalid credentials";
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+        document.getElementById("error").textContent = "Server error";
+      }
+    });
+  </script>
+</body>
+</html>
